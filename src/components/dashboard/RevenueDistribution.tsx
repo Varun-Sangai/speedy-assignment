@@ -35,7 +35,7 @@ const RevenueDistributionOverview = () => {
           show: false,
         },
         events:{
-          click:function(event:any,chartContext:any,opts:any){
+          click:function(event:any,_chartContext:any,opts:any){
             if(event.type=="touchend" || event.type=="touchstart"){
               return;
             }

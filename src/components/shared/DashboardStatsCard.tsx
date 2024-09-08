@@ -2,7 +2,7 @@ import { Typography } from "@mui/material";
 import { DashboardCardProps } from "../../types/common";
 
 export default function DashboardCard(props: DashboardCardProps) {
-    const { image, heading, value, bgColor } = props
+    const {heading, value, bgColor } = props
     return (
         <div style={{ background: bgColor }} className={`flex px-5 h-full py-10 rounded-2xl  justify-between items-center `}>
             {/* <img className="" src={image} alt="img"></img> */}

@@ -1,4 +1,3 @@
-import { Stats } from "fs";
 import { Artist, PaginatedQuery, PlatformStats } from "../types/common";
 
 export function objectToURLSearchParams(obj: { [key: string]: any }): string {
@@ -25,7 +24,7 @@ export function objectToURLSearchParams(obj: { [key: string]: any }): string {
     }
     if(index==3)
       return `$${stats[`${Object.keys(stats)[index] as keyof PlatformStats}`]?.toString()}`;
-    
+
     return stats[`${Object.keys(stats)[index] as keyof PlatformStats}`]?.toString();
   }
   return "";

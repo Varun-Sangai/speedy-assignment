@@ -3,7 +3,6 @@ import SideBarItem from "./cards/SidebarItemCard";
 import { SideBarItemProps } from "../../types/common";
 import { IconX } from '@tabler/icons-react';
 import { items } from "./data/data";
-import streamifylogo from "../../assets/streamify_logo-removebg.png";
 export default function MenuSideNav({
   open,
   setopen,

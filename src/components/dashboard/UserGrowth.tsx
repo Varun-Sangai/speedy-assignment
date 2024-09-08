@@ -1,9 +1,8 @@
 import React, { lazy, useMemo } from 'react';
-// import dynamic from "next/dynamic";
 const Chart = lazy(() => import("react-apexcharts"));
 import { useTheme } from '@mui/material/styles';
-import { Stack, Typography, Avatar, Fab, Skeleton } from '@mui/material';
-import { IconArrowDownRight, IconArrowUpLeft, IconCurrencyDollar } from '@tabler/icons-react';
+import {Typography, Avatar,Skeleton } from '@mui/material';
+import { IconArrowDownRight, IconArrowUpLeft,} from '@tabler/icons-react';
 import DashboardCard from '../shared/DashboardCard';
 import { useUserGrowth } from '../../hooks/useUserGrowth';
 

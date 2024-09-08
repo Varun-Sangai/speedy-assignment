@@ -79,7 +79,7 @@ function MuiTable<T>(props: MuiTableProps<T>) {
                 </TableRow>
               );
             })}
-            {loading && generateArray(10).map((item, index) => {
+            {loading && generateArray(10).map((_item, index) => {
               return <TableRow key={index}>
                 {columnsDataRender?.map((subItem, index2) => {
                   const { index: index3, render, ...tableCellProps } = subItem;

@@ -53,7 +53,7 @@ const products = [
 ];
 
 const ProductPerformance = () => {
-  const [page, setPage] = useState<number>(0);
+  const [page] = useState<number>(0);
   const handleChangePage = () => {
     console.log("handleChangePage");
   }

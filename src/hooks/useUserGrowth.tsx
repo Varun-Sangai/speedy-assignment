@@ -4,7 +4,7 @@ import { PaginatedQuery } from "../types/common";
 import { wait } from "../utils/common";
 
 export function useUserGrowth(paginationOptionsProp?:PaginatedQuery) {
-    const [paginationOptions, setPaginationOptions]=useState<PaginatedQuery | undefined>(paginationOptionsProp);
+    const [paginationOptions]=useState<PaginatedQuery | undefined>(paginationOptionsProp);
     const [{ userGrowthData, loading }, setState] = useState<{
         userGrowthData?: {
             timeline: string[],
@@ -17,6 +17,7 @@ export function useUserGrowth(paginationOptionsProp?:PaginatedQuery) {
     }>({
         loading: true
     });
+
     useEffect(() => {
         fetchUserGrowth(paginationOptions).then(async(data) => {
             const timeline: string[] = [];

@@ -52,11 +52,11 @@ function useSongs(paginationOptionsProp?:SongsQuery){
         })
     }, [paginationOptions]);
 
-    const handlePageChange = useCallback((event: React.ChangeEvent<unknown>, page: number) => {
+    const handlePageChange = useCallback((_event:React.ChangeEvent<unknown>, page: number) => {
         if (!paginationSearching)
             setPaginationSearching(true);
         handlePaginationState(page);
-    }, [handlePaginationState, paginationSearching]);
+    }, [handlePaginationState,paginationSearching]);
 
     const handleSearchState = useCallback((value: string) => {
         setPaginationOptions({

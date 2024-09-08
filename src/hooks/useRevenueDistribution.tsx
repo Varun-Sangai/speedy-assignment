@@ -4,7 +4,7 @@ import { PaginatedQuery } from "../types/common";
 import { wait } from "../utils/common";
 
 export function useRevenueDistribution(paginationOptionsProp?:PaginatedQuery){
-    const [paginationOptions, setPaginationOptions]=useState<PaginatedQuery | undefined>(paginationOptionsProp);
+    const [paginationOptions]=useState<PaginatedQuery | undefined>(paginationOptionsProp);
     const [{ revenueDistribution, loading }, setState] = useState<{
         revenueDistribution?: {
             sources: string[],
