@@ -30,7 +30,6 @@ export type PlatformStats={
     totalUsers:number;
     totalActiveUsers:number;
     totalRevenue:number;
-    mostPlayedArtist:Artist;
 }
 
 export type UserGrowthData={
@@ -93,14 +92,28 @@ export interface ColumnDataProps<T> extends TableCellProps {
   }
 
 
-  export interface DashboardCardProps {
+  export type DashboardStatsCardProps={
     image: any;
     heading?: string;
     value?: string;
     bgColor?:string;
+    loading?: boolean;
     }
 
-  export interface SideBarItemProps {
+
+   export  type DashboardCardProps={
+        title?: string;
+        subtitle?: string;
+        action?: JSX.Element | any;
+        footer?: JSX.Element;
+        cardheading?: string | JSX.Element;
+        headtitle?: string | JSX.Element;
+        headsubtitle?: string | JSX.Element;
+        children?: JSX.Element;
+        middlecontent?: string | JSX.Element;
+        wrapperClassName?: string;
+      };
+  export type SideBarItemProps= {
     text: string;
     link: string;
     icon: (props: TablerIconsProps) => JSX.Element;

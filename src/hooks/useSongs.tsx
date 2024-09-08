@@ -1,7 +1,6 @@
 import { useCallback, useEffect,useState } from "react";
 import { Songs, SongsQuery } from "../types/common";
 import { fetchSongs } from "../apis/requests/songs.requests";
-import {  wait } from "../utils/common";
 import useDebounceFunction from "./useDebounceFunction";
 
 function useSongs(paginationOptionsProp?:SongsQuery){
@@ -33,7 +32,6 @@ function useSongs(paginationOptionsProp?:SongsQuery){
     useEffect(() => {
         setState({ loading: true });
         fetchSongs(paginationOptions).then(async (data) => {
-            await wait(2000);
             if(Array.isArray(data))
             setState({ songs: data, loading: false });
             else

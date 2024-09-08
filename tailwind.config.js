@@ -9,7 +9,7 @@ export default {
     },
     extend: {  
       boxShadow:{
-        'custom':'0px 5px 6px -3px rgba(0, 0, 0, 0.2), 0px 9px 12px 1px rgba(0, 0, 0, 0.14), 0px 3px 16px 2px rgba(0, 0, 0, 0.12)'
+        'custom':'0px 3px 4px -2px rgba(0, 0, 0, 0.1), 0px 5px 6px 0px rgba(0, 0, 0, 0.08), 0px 2px 8px 1px rgba(0, 0, 0, 0.06)'
       },
       colors: {
         primary: {
@@ -21,6 +21,9 @@ export default {
           main: "#49BEFF",
           light: "#E8F7FF",
           dark: "#23afdb",
+        },
+        tertiary:{
+          main:'#1C2536',
         },
         success: {
           main: "#13DEB9",

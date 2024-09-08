@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
 import { fetchRevenueDistribution } from "../apis/requests/revenuedistributions.requests";
 import { PaginatedQuery } from "../types/common";
-import { wait } from "../utils/common";
 
 export function useRevenueDistribution(paginationOptionsProp?:PaginatedQuery){
     const [paginationOptions]=useState<PaginatedQuery | undefined>(paginationOptionsProp);
@@ -25,7 +24,6 @@ export function useRevenueDistribution(paginationOptionsProp?:PaginatedQuery){
                 amounts.push(item.amount);
                 totalAmount+=item.amount
             })
-            await wait(2000);
             setState({ revenueDistribution: { sources,amounts,totalAmount}, loading: false });
         }).catch((err) => {
             console.log(err);

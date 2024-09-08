@@ -5,7 +5,7 @@ import './index.css'
 import { ThemeProvider } from "@mui/material/styles";
 import { baselightTheme } from "../src/theme/DefaultColors";
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Layout from './layouts/layout.tsx';
+import Layout from './components/layout/layout.tsx';
 import { Provider } from 'react-redux';
 import { store } from './store/store.ts';
 

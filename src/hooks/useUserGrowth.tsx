@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
 import { fetchUserGrowth } from "../apis/requests/usergrowth.requests";
 import { PaginatedQuery } from "../types/common";
-import { wait } from "../utils/common";
 
 export function useUserGrowth(paginationOptionsProp?:PaginatedQuery) {
     const [paginationOptions]=useState<PaginatedQuery | undefined>(paginationOptionsProp);
@@ -28,7 +27,6 @@ export function useUserGrowth(paginationOptionsProp?:PaginatedQuery) {
                 totalUsers.push(item.users);
                 totalActiveUsers.push(item.activeUsers);
             })
-            await wait(2000);
             setState({ userGrowthData: { timeline, totalUsers, totalActiveUsers,userPercentageGrowth:Number(((totalUsers[totalUsers.length-1]-totalUsers[0])/totalUsers[0]).toFixed(2)),activeUserPercentageGrowth:Number(((totalUsers[totalUsers.length-1]-totalUsers[0])/totalUsers[0]).toFixed(2)) }, loading: false });
         }).catch((err) => {
             console.log(err);

@@ -1,4 +1,4 @@
-import { Artist, PaginatedQuery, PlatformStats } from "../types/common";
+import {  PaginatedQuery, PlatformStats } from "../types/common";
 
 export function objectToURLSearchParams(obj: { [key: string]: any }): string {
     const params = new URLSearchParams();
@@ -18,10 +18,6 @@ export function objectToURLSearchParams(obj: { [key: string]: any }): string {
 
   export function getDashboardCardValue(index:number,stats:PlatformStats|undefined):string{
     if(stats){
-    if(index==4)
-    {
-      return (stats[`${Object.keys(stats)[index] as keyof PlatformStats}`] as Artist)?.name;
-    }
     if(index==3)
       return `$${stats[`${Object.keys(stats)[index] as keyof PlatformStats}`]?.toString()}`;
 
