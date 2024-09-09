@@ -11,7 +11,7 @@ import {
 } from '@mui/material';
 import { generateArray } from '../../utils/common';
 import { MuiTableProps } from '../../types/common';
-
+import noData from "../../assets/No-data.svg";
 function MuiTable<T>(props: MuiTableProps<T>) {
   const {
     tableProps,
@@ -94,6 +94,7 @@ function MuiTable<T>(props: MuiTableProps<T>) {
           </TableBody>
           <TableFooter {...tableFooterProps}></TableFooter>
         </Table>
+        {!loading && (!data || (data && data.length==0)) && <div className='flex  items-center justify-center h-[60vh]'><img src={noData} className='h-2/3'></img></div>}
       </div>
       {pagination && pagination.paginationEnabled && <div className='ml-auto w-fit mt-2'><Pagination {...pagination.paginationProps}></Pagination></div>}
     </>

@@ -13,7 +13,7 @@ const MostStreamedSongsOverview = () => {
     const theme = useTheme();
     const primary = theme.palette.primary.main;
     const secondary = theme.palette.secondary.main;
-
+    
     const { songs, loading,handleLimitChange } = useSongs({ _sort: ['streamCount'],_order:["desc"]});
     const [selectValue,setSelectValue]=useState<number>(3);
 
@@ -85,6 +85,10 @@ const MostStreamedSongsOverview = () => {
                 }
             },
             tooltip: {
+                fixed:{
+                    enabled:window.innerWidth<=480,
+                    positon:'topLeft'
+                },
                 theme: 'light',
                 fillSeriesColor: false,
             },

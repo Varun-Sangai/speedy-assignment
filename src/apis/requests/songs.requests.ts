@@ -6,7 +6,7 @@ export const fetchSongs = (payload?:SongsQuery,options?:HTTPOptions) => {
     console.log(payload);
     const query = objectToURLSearchParams(payload || {});  
     console.log(query);
-    return http.get<Songs[]|{[key:string]:any}>(
+    return http.get<{data:Songs[],totalCount:number}|Songs[]>(
       `/songs${query?`?${query}`:''}`,
       options
     );

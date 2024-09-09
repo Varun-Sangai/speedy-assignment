@@ -17,7 +17,7 @@ import React from 'react';
 
 const RecentStreamsTable = () => {
     const { source } = useAppSelector((state) => state.revenueDistributionSlice);
-    const { songs, loading, handleSort, handleSongsSearch, handlePageChange, paginationOptions, paginationSearching, searching } = useSongs({
+    const { songs,totalCount,loading, handleSort, handleSongsSearch, handlePageChange, paginationOptions, paginationSearching, searching } = useSongs({
         _page: 1,
         _limit: 10,
         "user.isSubscribed":source=="Advertisements"?false:source=="Subscriptions"?true:undefined
@@ -165,7 +165,7 @@ const RecentStreamsTable = () => {
                 data={songs || []}
                 columnsDataRender={renderColumnsData}
                 headersDataRender={{ columnsHeaderData: renderColumnsHeading }}
-                pagination={{ paginationEnabled: !searching, paginationProps: { count: source==undefined?5:3, size: 'small', onChange: handlePageChange } }}
+                pagination={{ paginationEnabled: !searching && (Math.ceil(((totalCount || 0)/10))>0), paginationProps: { count:Math.ceil(((totalCount || 10)/10)), size: 'small', onChange: handlePageChange} }}
             ></MuiTable>
         </DashboardCard>
     );

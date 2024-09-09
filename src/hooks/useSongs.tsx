@@ -8,7 +8,7 @@ function useSongs(paginationOptionsProp?:SongsQuery){
     const [searching, setSearching] = useState<boolean>(true);
     const [paginationSearching, setPaginationSearching] = useState<boolean>(true);
     const [paginationOptions, setPaginationOptions] = useState<SongsQuery | undefined>(paginationOptionsProp);
-    const [{ songs, loading }, setState] = useState<{songs?: Songs[];loading: boolean}>({loading: true});
+    const [{ songs,totalCount, loading }, setState] = useState<{songs?: Songs[];totalCount?:number;loading: boolean}>({loading: true});
 
     useEffect(()=>{
         if(paginationOptionsProp?.["user.isSubscribed"]==true && !loading){
@@ -32,10 +32,12 @@ function useSongs(paginationOptionsProp?:SongsQuery){
     useEffect(() => {
         setState({ loading: true });
         fetchSongs(paginationOptions).then(async (data) => {
+            console.log(data);
             if(Array.isArray(data))
-            setState({ songs: data, loading: false });
-            else
-            setState({ songs: data?.data, loading: false });
+            setState({ songs:data,loading: false });
+            else{
+                setState({ songs:data?.data,totalCount:(data?.totalCount || undefined),loading: false });
+            }
             setSearching(false);
             setPaginationSearching(false);
         }).catch((err) => {
@@ -99,7 +101,7 @@ function useSongs(paginationOptionsProp?:SongsQuery){
         })
     }, [paginationOptions]);
 
-    return { songs, loading, handleSongsSearch,handlePageChange,handleLimitChange, paginationOptions,paginationSearching,searching,handleSort };
+    return { songs, loading, handleSongsSearch,handlePageChange,handleLimitChange,totalCount,paginationOptions,paginationSearching,searching,handleSort };
 }
 
 export default useSongs;

@@ -61,8 +61,13 @@ const fetchGet= async<T> (url: string, options?: HTTPOptions) => {
       headers: await getHeader(options?.headers),
     },
   );
-  const data:T=await result.json();
-  return data;
+  const totalCount=await result.headers.get('x-total-count');
+
+  const data=await result.json();
+  if(totalCount){
+    return {data,totalCount} as T;
+  }
+  return data as T;
 }
 
 
