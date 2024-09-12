@@ -87,7 +87,7 @@ const MostStreamedSongsOverview = () => {
             tooltip: {
                 fixed:{
                     enabled:window.innerWidth<=480,
-                    positon:'topLeft'
+                    positon:'topLeft',
                 },
                 theme: 'light',
                 fillSeriesColor: false,
